@@ -5,15 +5,10 @@
 //  Created by Pranav on 02/08/25.
 //
 
-
 import SwiftUI
 
-import SwiftUI
 
 struct BalloonView: View {
-  
-   
-
     let option: Int
     @State private var floatDown = false
     let startOffset: CGFloat // Start 200 points above
@@ -88,7 +83,7 @@ struct BalloonView: View {
     ZStack {
         Color.blue.opacity(0.1).ignoresSafeArea()
         BalloonView(
-            option: 23,
+           option: 23,
             startOffset: 0,
             endOffset: 400,
             color1: .yellow,

@@ -13,7 +13,6 @@ struct QuestionMainView: View {
     @State private var selectedOption: Int? = nil
     @State private var showNext = false
    
-    
     var body: some View {
         VStack(spacing: 30) {
             Text(quesVM.questionText)
@@ -32,7 +31,6 @@ struct QuestionMainView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 3), spacing: 20) {
                 ForEach(quesVM.options, id: \.self) { option in
                     OptionButton(
-                       
                         thisOption: option,
                         isSelected: selectedOption == option,
                         isCorrect: option == quesVM.currentAnswer,
@@ -100,8 +98,8 @@ let lightColors: [Color] = [
 
 
 struct OptionButton: View {
-    
-   
+    @State private var isPopped = false
+    @State private var hideBalloon = false
     
     let thisOption: Int
     let isSelected: Bool
@@ -110,14 +108,19 @@ struct OptionButton: View {
     let onTap: () -> Void
     
     var body: some View {
-        Button(action:{
+        Button(action: {
             onTap()
-            
+            withAnimation {
+                isPopped = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    hideBalloon = true
+                }
+            }
         }) {
             BalloonView(
                 option: thisOption,
-                startOffset: 100,
-                endOffset: 400,
+                startOffset: 0,
+                endOffset: 300,
                 color1: lightColors.randomElement()!,
                 color2: lightColors.randomElement()!
             )
@@ -126,3 +129,5 @@ struct OptionButton: View {
         .animation(.spring(), value: isSelected)
     }
 }
+
+
