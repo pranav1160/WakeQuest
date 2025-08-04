@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "wake_up_baby.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct WakeQuestApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            QuestionMainView()
+                ContentView()
+                   
         }
     }
 }
