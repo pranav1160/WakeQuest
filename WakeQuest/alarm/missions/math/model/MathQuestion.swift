@@ -22,11 +22,7 @@ struct MathQuestion {
                                         MathQuestion(numbers: [45, 14], op: .add),
                                         MathQuestion(numbers: [34, 45, 76], op: .add),
                                         MathQuestion(numbers: [345, 678], op: .add)]
-    
 }
-
-
-
 
 enum Operator: String, CaseIterable {
     case add, subtract
